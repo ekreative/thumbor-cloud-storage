@@ -1,6 +1,7 @@
 from tornado.concurrent import return_future
 from gcloud import storage
 from collections import defaultdict
+from thumbor.loaders import LoaderResult
 
 buckets = defaultdict(dict)
 
@@ -18,4 +19,7 @@ def load(context, path, callback):
     if blob:
         callback(blob.download_as_string())
     else:
-        callback(blob)
+        result = LoaderResult()
+        result.successful = False
+        result.error = LoaderResult.ERROR_NOT_FOUND
+        callback(result)
