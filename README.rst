@@ -1,6 +1,11 @@
 Thumbor Cloud Storage
 =====================
 
+.. code:: bash
+
+        docker build -t ekreative/thumbor-cloud-storage
+        docker push ekreative/thumbor-cloud-storage
+
 Installation
 ------------
 
